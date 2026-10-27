@@ -12,44 +12,29 @@ public class ProceduralAudioGenerator : MonoBehaviour
     [SerializeField] private float bpm = 120f;
 
     [Header("Melodic Variety")]
-    [Tooltip("Number of beats before switching to a new scale key/mode for dynamic variety.")]
     [SerializeField] private int beatsPerScaleChange = 16;
 
-    // Defined Musical Scales (Frequencies in Hz)
     private readonly float[][] musicalScales = new float[][]
     {
-        // 0: C Minor Pentatonic (Classic Retro / Dark)
-        new float[] { 261.63f, 311.13f, 349.23f, 392.00f, 466.16f, 523.25f },
-
-        // 1: C Major Pentatonic (Upbeat / Happy Bunny Vibe)
-        new float[] { 261.63f, 293.66f, 329.63f, 392.00f, 440.00f, 523.25f },
-
-        // 2: C Dorian Scale (Funky / Adventure)
-        new float[] { 261.63f, 293.66f, 311.13f, 349.23f, 392.00f, 440.00f, 466.16f },
-
-        // 3: C Blues Scale (Playful / Groovy)
-        new float[] { 261.63f, 311.13f, 349.23f, 370.00f, 392.00f, 466.16f }
+        new float[] { 261.63f, 311.13f, 349.23f, 392.00f, 466.16f, 523.25f }, // C Minor Pentatonic
+        new float[] { 261.63f, 293.66f, 329.63f, 392.00f, 440.00f, 523.25f }, // C Major Pentatonic
+        new float[] { 261.63f, 293.66f, 311.13f, 349.23f, 392.00f, 440.00f, 466.16f }, // C Dorian
+        new float[] { 261.63f, 311.13f, 349.23f, 370.00f, 392.00f, 466.16f }  // C Blues
     };
 
     private float[] currentScale;
-    private float frequency = 261.63f;
-    private double _phase;
-    private int _sampleRate;
-
+    private AudioSource audioSource;
     private float beatInterval;
     private float beatTimer;
     private int totalBeatsTicked = 0;
-
-    // Envelope / Note Control
-    private bool isSoundingNote = false;
-    private float noteDurationTimer = 0f;
-    private float noteTotalDuration = 0.14f;
+    private const int sampleRate = 44100;
 
     public static event Action OnBeatTick;
 
     private void Awake()
     {
-        _sampleRate = AudioSettings.outputSampleRate;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.playOnAwake = false;
         beatInterval = 60f / bpm;
         SelectRandomScale();
     }
@@ -62,22 +47,12 @@ public class ProceduralAudioGenerator : MonoBehaviour
             beatTimer -= beatInterval;
             totalBeatsTicked++;
 
-            // Periodically switch scales to keep the music fresh
             if (totalBeatsTicked % beatsPerScaleChange == 0)
             {
                 SelectRandomScale();
             }
 
-            TriggerProceduralNote();
-        }
-
-        if (isSoundingNote)
-        {
-            noteDurationTimer -= Time.deltaTime;
-            if (noteDurationTimer <= 0)
-            {
-                isSoundingNote = false;
-            }
+            PlayProceduralNote();
         }
     }
 
@@ -87,68 +62,55 @@ public class ProceduralAudioGenerator : MonoBehaviour
         currentScale = musicalScales[randomIndex];
     }
 
-    private void TriggerProceduralNote()
+    private void PlayProceduralNote()
     {
         if (currentScale == null || currentScale.Length == 0) return;
 
-        // Pick a random pitch from the currently selected scale
-        int noteIndex = UnityEngine.Random.Range(0, currentScale.Length);
-        float basePitch = currentScale[noteIndex];
+        // Wake up browser audio context if paused
+        if (AudioListener.pause) AudioListener.pause = false;
 
-        // 20% chance to jump an octave higher for melodic accents
+        // Pick pitch from current scale
+        int noteIndex = UnityEngine.Random.Range(0, currentScale.Length);
+        float frequency = currentScale[noteIndex];
+
         if (UnityEngine.Random.value > 0.80f)
         {
-            basePitch *= 2.0f; // Octave up
+            frequency *= 2.0f; // Octave jump accent
         }
 
-        frequency = basePitch;
-        isSoundingNote = true;
-        noteDurationTimer = noteTotalDuration;
+        // Procedurally generate tone in RAM
+        float duration = 0.14f;
+        int sampleCount = (int)(sampleRate * duration);
+        float[] samples = new float[sampleCount];
 
-        OnBeatTick?.Invoke();
-    }
-
-    private void OnAudioFilterRead(float[] data, int channels)
-    {
-        if (!isSoundingNote)
+        for (int i = 0; i < sampleCount; i++)
         {
-            Array.Clear(data, 0, data.Length);
-            return;
-        }
-
-        double phaseIncrement = frequency / _sampleRate;
-
-        for (int sample = 0; sample < data.Length; sample += channels)
-        {
-            // Simple decay envelope calculation so notes fade out smoothly
-            float envelope = Mathf.Clamp01(noteDurationTimer / noteTotalDuration);
-            float currentAmplitude = amplitude * envelope;
-
+            double phase = (double)i * frequency / sampleRate;
+            float envelope = 1.0f - ((float)i / sampleCount); // Smooth decay
             float value = 0f;
 
             switch (waveform)
             {
                 case WaveformType.Sine:
-                    value = Mathf.Sin((float)(_phase * 2.0 * Mathf.PI)) * currentAmplitude;
+                    value = Mathf.Sin((float)(phase * 2.0 * Mathf.PI)) * amplitude * envelope;
                     break;
-
                 case WaveformType.Square:
-                    value = (_phase < 0.5 ? 1.0f : -1.0f) * currentAmplitude;
+                    value = ((phase % 1.0) < 0.5 ? 1.0f : -1.0f) * amplitude * envelope;
                     break;
-
                 case WaveformType.Triangle:
-                    // Triangle wave math for a softer retro chime
-                    value = (Mathf.PingPong((float)(_phase * 2.0), 1.0f) - 0.5f) * 2.0f * currentAmplitude;
+                    value = (Mathf.PingPong((float)(phase * 2.0), 1.0f) - 0.5f) * 2.0f * amplitude * envelope;
                     break;
             }
 
-            _phase = (_phase + phaseIncrement) % 1.0;
-
-            for (int channel = 0; channel < channels; channel++)
-            {
-                data[sample + channel] = value;
-            }
+            samples[i] = value;
         }
+
+        // Create temporary procedural clip and play
+        AudioClip toneClip = AudioClip.Create("ProceduralNote", sampleCount, 1, sampleRate, false);
+        toneClip.SetData(samples, 0);
+
+        audioSource.PlayOneShot(toneClip);
+        OnBeatTick?.Invoke();
     }
 
     public float GetBeatInterval() => beatInterval;

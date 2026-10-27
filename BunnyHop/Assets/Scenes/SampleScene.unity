@@ -327,6 +327,7 @@ GameObject:
   - component: {fileID: 218463791}
   - component: {fileID: 218463792}
   - component: {fileID: 218463793}
+  - component: {fileID: 218463794}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -386,6 +387,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0032ac75b11d47e4190fb0331edda945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameMenuHandler
+--- !u!114 &218463794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218463789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde185a063bbb144e912d94f647d8af6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WebGLAudio
 --- !u!1 &307604316
 GameObject:
   m_ObjectHideFlags: 0
