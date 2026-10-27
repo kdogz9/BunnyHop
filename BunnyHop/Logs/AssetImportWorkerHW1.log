@@ -1,11 +1,11 @@
 [Licensing::Module] Trying to connect to existing licensing client channel...
 Built from '6000.5/staging' branch; Version is '6000.5.6f1 (0e0577a1a2ac) revision 918903'; Using compiler version '194234433'; Build Type 'Release'
 OS: 'Windows 11  (10.0.26300) Professional' Language: 'en' Physical Memory: 31860 MB
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-keish" at "2026-10-24T12:39:43.219303Z"
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-keish" at "2026-10-27T13:41:32.3849859Z"
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
 System  architecture: x64
 Process architecture: x64
-Date: 2026-10-24T12:39:43Z
+Date: 2026-10-27T13:41:32Z
 
 COMMAND LINE ARGUMENTS:
 C:\Program Files\Unity\Hub\Editor\6000.5.6f1\Editor\Unity.exe
@@ -19,9 +19,9 @@ C:/GitHub/BunnyHop/BunnyHop
 -logFile
 Logs/AssetImportWorkerHW1.log
 -srvPort
-53287
+52288
 -parentPid
-23680
+17072
 -analyticsCloudUserId
 1375476375314
 -analyticsCloudProjectId
@@ -84,12 +84,12 @@ C:/GitHub/BunnyHop/BunnyHop
     "memorysetup-job-temp-allocator-block-size=2097152"
     "memorysetup-job-temp-allocator-block-size-background=1048576"
     "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
-Player connection [23288]  Target information:
+Player connection [31104]  Target information:
 
-Player connection [23288]  * "[IP] 192.168.1.82 [Port] 0 [Flags] 2 [Guid] 1258482362 [EditorId] 1258482362 [Version] 1048832 [Id] WindowsEditor(7,K-Baddie) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [31104]  * "[IP] 192.168.1.82 [Port] 0 [Flags] 2 [Guid] 2430628381 [EditorId] 2430628381 [Version] 1048832 [Id] WindowsEditor(7,K-Baddie) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [23288] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [23288] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [31104] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [31104] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 7
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -101,7 +101,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 2.88 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 3.39 ms, found 5 plugins.
 Initialize engine version: 6000.5.6f1 (0e0577a1a2ac)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.5.6f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path C:/GitHub/BunnyHop/BunnyHop/Assets
@@ -120,29 +120,29 @@ Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.5.6f1/Editor/Data/Managed
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.5.6f1/Editor/Data/BCLExtensions/runtime/netstandard2.1'
 Mono path[2] = 'C:/Program Files/Unity/Hub/Editor/6000.5.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.5.6f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56464
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56848
 CodeReloadManager initialized
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.5.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.001122 seconds.
+Registered in 0.001119 seconds.
 [Licensing::Client] Error: HandshakeResponse reported an error:
 	ResponseCode: 505
 	ResponseStatus: Unsupported protocol version '1.18.1'.
 [Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-keish"
 [Licensing::IpcConnector] LicenseClient-keish channel disconnected successfully.
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-keish-6000.5.6" at "2026-10-24T12:39:43.9730943Z"
-[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 9960, path: "C:/Program Files/Unity/Hub/Editor/6000.5.6f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-keish-6000.5.6" at "2026-10-27T13:41:33.125681Z"
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 13168, path: "C:/Program Files/Unity/Hub/Editor/6000.5.6f1/Editor/Data/Resources/Licensing/Client/Unity.Licensing.Client.exe")
 [Licensing::Module] LicensingClient has failed validation; ignoring
 [Licensing::Client] Handshaking with LicensingClient:
   Version:                 1.18.1+9fbee8e
-  Session Id:              c72c2a3dd6084581b251b7bb297928cc
-  Correlation Id:          9a62432f791dd49f1c6e10c8caa84a9c
-  External correlation Id: 7946720602494557287
+  Session Id:              ad9777f3a6304416baa73a47aa13bfb9
+  Correlation Id:          1b500d6b02dedaea65d8c405a2471303
+  External correlation Id: 7993386265124577421
   Machine Id:              /RzPr2gAIPSB4NcypRRRBkxSfUM=
 [Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-keish-6000.5.6" (connect: 0.00s, validation: 0.00s, handshake: 0.00s)
-[Licensing::IpcConnector] Successfully connected to: "LicenseClient-keish-6000.5.6-notifications" at "2026-10-24T12:39:43.9779095Z"
-[Licensing::Module] Licensing Background thread has ended after 0.76s
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-keish-6000.5.6-notifications" at "2026-10-27T13:41:33.1303935Z"
+[Licensing::Module] Licensing Background thread has ended after 0.75s
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
@@ -150,22 +150,22 @@ Package Manager log level set to [2]
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.248 seconds
-Domain Reload Profiling: 581ms
-	BeginReloadAssembly (85ms)
-	RebuildCommonClasses (4ms)
+- Finished resetting the current domain, in  0.243 seconds
+Domain Reload Profiling: 552ms
+	BeginReloadAssembly (75ms)
+	RebuildCommonClasses (3ms)
 	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (44ms)
-	LoadAllAssembliesAndSetupDomain (189ms)
-		LoadAssemblies (82ms)
-		AnalyzeDomain (138ms)
-			TypeCache.Refresh (137ms)
-				TypeCache.ScanAssembly (127ms)
-	FinalizeReload (249ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (179ms)
+		LoadAssemblies (72ms)
+		AnalyzeDomain (130ms)
+			TypeCache.Refresh (128ms)
+				TypeCache.ScanAssembly (119ms)
+	FinalizeReload (244ms)
 		SetupLoadedEditorAssemblies (0ms)
-			BeforeProcessingInitializeOnLoad (57ms)
-			ProcessInitializeOnLoadAttributes (61ms)
-			ProcessInitializeOnLoadMethodAttributes (76ms)
+			BeforeProcessingInitializeOnLoad (54ms)
+			ProcessInitializeOnLoadAttributes (57ms)
+			ProcessInitializeOnLoadMethodAttributes (78ms)
 Initializing Unity extensions:
 [Licensing::Client] Successfully resolved entitlement details
 [Licensing::Module] License group:
@@ -173,6 +173,7 @@ Initializing Unity extensions:
   Product: Unity Personal
   Type: Assigned
   Expiration: Unlimited
+Curl error 3: URL rejected: Malformed input to a URL function
 ========================================================================
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
@@ -186,45 +187,135 @@ Native extension for WindowsStandalone target not found
 [Package Manager] Cannot connect to Unity Package Manager local server
 ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.542 seconds
-Domain Reload Profiling: 1120ms
-	BeginReloadAssembly (125ms)
+- Finished resetting the current domain, in  0.530 seconds
+Domain Reload Profiling: 1092ms
+	BeginReloadAssembly (121ms)
 		DisableScriptedObjects (6ms)
 		CreateAndSetChildDomain (25ms)
 	RebuildCommonClasses (6ms)
 	RebuildNativeTypeToScriptingClass (11ms)
-	initialDomainReloadingComplete (39ms)
-	LoadAllAssembliesAndSetupDomain (397ms)
-		LoadAssemblies (217ms)
+	initialDomainReloadingComplete (37ms)
+	LoadAllAssembliesAndSetupDomain (387ms)
+		LoadAssemblies (202ms)
 		AnalyzeDomain (166ms)
-			TypeCache.Refresh (118ms)
-				TypeCache.ScanAssembly (108ms)
-			BuildScriptInfoCaches (43ms)
+			TypeCache.Refresh (119ms)
+				TypeCache.ScanAssembly (109ms)
+			BuildScriptInfoCaches (42ms)
 			ResolveRequiredComponents (3ms)
-	FinalizeReload (542ms)
+	FinalizeReload (531ms)
 		SetupLoadedEditorAssemblies (0ms)
-			BeforeProcessingInitializeOnLoad (57ms)
-			ProcessInitializeOnLoadAttributes (209ms)
-			ProcessInitializeOnLoadMethodAttributes (156ms)
-			AfterProcessingInitializeOnLoad (3ms)
+			BeforeProcessingInitializeOnLoad (52ms)
+			ProcessInitializeOnLoadAttributes (201ms)
+			ProcessInitializeOnLoadMethodAttributes (155ms)
+			AfterProcessingInitializeOnLoad (4ms)
 AcceleratorClientConnectionCallback - disconnected - :0
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
 Unloading 22 Unused Serialized files (Serialized files now loaded: 0)
 Curl error 3: URL rejected: Malformed input to a URL function
-Unloading 7360 unused Assets / (5.1 MB). Loaded Objects now: 8251.
-Memory consumption went from 353.9 MB to 348.8 MB.
-Total: 7.529300 ms (FindLiveObjects: 0.710700 ms CreateObjectMapping: 1.199300 ms MarkObjects: 3.745200 ms  DeleteObjects: 1.872300 ms)
+Unloading 7360 unused Assets / (4.9 MB). Loaded Objects now: 8251.
+Memory consumption went from 356.2 MB to 351.3 MB.
+Total: 7.110600 ms (FindLiveObjects: 0.693400 ms CreateObjectMapping: 1.200700 ms MarkObjects: 3.612000 ms  DeleteObjects: 1.602600 ms)
 
 ========================================================================
 Received Prepare
 AcceleratorClientConnectionCallback - disconnected - :0
 Unloading 22 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 22 unused Assets / (2.6 MB). Loaded Objects now: 8251.
-Memory consumption went from 345.8 MB to 343.2 MB.
-Total: 5.942500 ms (FindLiveObjects: 0.398600 ms CreateObjectMapping: 0.498200 ms MarkObjects: 4.624900 ms  DeleteObjects: 0.419800 ms)
+Memory consumption went from 348.1 MB to 345.5 MB.
+Total: 7.095400 ms (FindLiveObjects: 0.637800 ms CreateObjectMapping: 0.623500 ms MarkObjects: 5.295100 ms  DeleteObjects: 0.538100 ms)
 
 Prepare: number of updated asset objects reloaded= 0
-Editor requested this worker to shutdown with reason: Editor is closing down
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:48.3366772Z
+  Time since last request: 868094.42599839996547 seconds.
+  importAddress: GUID: be741df7aa5355a4ea564507c74772b2 - Path: Assets/2DAssets/Sky Tile without Clouds (16x16).png - Importer: PreviewImporter
+Importing 'GUID: be741df7aa5355a4ea564507c74772b2 - Path: Assets/2DAssets/Sky Tile without Clouds (16x16).png - Importer: PreviewImporter' with importer (PreviewImporter)
+Imported 'GUID: be741df7aa5355a4ea564507c74772b2' -> (Import Result ID: '19862c343ca0ae329cfb3f20a5673979') in 0.079 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=6d61adba23d5039b794ae56d8233690f DependenciesID=9e35a300db38794e4432497ecc5fe14f StaticDependenciesID=a5f9dcba3b28cb3b38b50dc3caf649e3 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:48.427966Z
+  Time since last request: 0.0000197 seconds.
+  importAddress: GUID: 2be589c6d9360ed4cac16eb5cbc78fdb - Path: Assets/2DAssets/Bunny (32x32).png - Importer: PreviewImporter
+Importing 'GUID: 2be589c6d9360ed4cac16eb5cbc78fdb - Path: Assets/2DAssets/Bunny (32x32).png - Importer: PreviewImporter' with importer (PreviewImporter)
+Imported 'GUID: 2be589c6d9360ed4cac16eb5cbc78fdb' -> (Import Result ID: '1771c29a9e79ea3269361c0009570dc1') in 0.010 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=765d9a56c26b23cdad87c4cad595c2da DependenciesID=231bc02af3637918a84f37c12a273302 StaticDependenciesID=b3ba7b2038814412c82c18b07b3c7622 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:48.4480609Z
+  Time since last request: 0.0003167 seconds.
+  importAddress: GUID: 5f9f29755401d274a848d5ba5ee615bf - Path: Assets/2DAssets/Carrot (16x16).png - Importer: PreviewImporter
+Importing 'GUID: 5f9f29755401d274a848d5ba5ee615bf - Path: Assets/2DAssets/Carrot (16x16).png - Importer: PreviewImporter' with importer (PreviewImporter)
+Imported 'GUID: 5f9f29755401d274a848d5ba5ee615bf' -> (Import Result ID: '2303a10f9de265d1294cc419b1969fcd') in 0.008 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=c13c212b41e176594571158efbf0d49a DependenciesID=8f6d1070292ce9a7fd6dc0f36dfdd152 StaticDependenciesID=a3a4d4ca43e856961045c2c7f860f7ef 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:48.4651509Z
+  Time since last request: 0.0003055 seconds.
+  importAddress: GUID: a34d3a7550f00ff41aba4b640a0d4fe9 - Path: Assets/2DAssets/Grass Tile with Flowers (16x16).png - Importer: PreviewImporter
+Importing 'GUID: a34d3a7550f00ff41aba4b640a0d4fe9 - Path: Assets/2DAssets/Grass Tile with Flowers (16x16).png - Importer: PreviewImporter' with importer (PreviewImporter)
+Imported 'GUID: a34d3a7550f00ff41aba4b640a0d4fe9' -> (Import Result ID: '36487ed35818341a09a10a6560a0af85') in 0.011 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=4f9c89c8fb23caff44580271019d7c2e DependenciesID=34180aecf63bb0844ca8e44a12e4ba0c StaticDependenciesID=643ed385c9ea8a337a851921de243e11 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:48.4851153Z
+  Time since last request: 0.0003914 seconds.
+  importAddress: GUID: 9013ba1738d0bb047a8060fd5c4c4cce - Path: Assets/2DAssets/Visual Cue - Tall Grass Patch (16x16).png - Importer: PreviewImporter
+Importing 'GUID: 9013ba1738d0bb047a8060fd5c4c4cce - Path: Assets/2DAssets/Visual Cue - Tall Grass Patch (16x16).png - Importer: PreviewImporter' with importer (PreviewImporter)
+Imported 'GUID: 9013ba1738d0bb047a8060fd5c4c4cce' -> (Import Result ID: 'e6ee7e87d8ea296cdaaae32f44019c0c') in 0.007 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=1905fe29dc0bd20c145d34a4a61c3a8f DependenciesID=240b476429b2ad12f41ade07ca8fae22 StaticDependenciesID=c7e9f5b67b825c4c59eda5307f00551a 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:48.5025449Z
+  Time since last request: 0.000304 seconds.
+  importAddress: GUID: 84bd90e2b29fb714b8fafce3bf0cea5a - Path: Assets/2DAssets/Grass to Dirt Tile (16x16).png - Importer: PreviewImporter
+Importing 'GUID: 84bd90e2b29fb714b8fafce3bf0cea5a - Path: Assets/2DAssets/Grass to Dirt Tile (16x16).png - Importer: PreviewImporter' with importer (PreviewImporter)
+Imported 'GUID: 84bd90e2b29fb714b8fafce3bf0cea5a' -> (Import Result ID: '4a8f11e0db4132f7c47af2ab9c679721') in 0.015 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=24703d0c4fea04ae7ce1040c6f610442 DependenciesID=ebccd3cc6c6f4117364bfde9475e0f2f StaticDependenciesID=c68ca9b1c7956d71f109c2e52db20ee7 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:49.2445645Z
+  Time since last request: 0.7191389 seconds.
+  importAddress: GUID: 08cbd3b7c5d424f48b352d62ca7ab9c5 - Path: Assets/2DAssets/Visual Cue - Log (32x16).png - Importer: ScriptedImporter/UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B
+Importing 'GUID: 08cbd3b7c5d424f48b352d62ca7ab9c5 - Path: Assets/2DAssets/Visual Cue - Log (32x16).png - Importer: ScriptedImporter/UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B' with importer (ScriptedImporter : UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B)
+Imported 'GUID: 08cbd3b7c5d424f48b352d62ca7ab9c5' -> (Import Result ID: 'f38a34a580fb7f41dbf62731f661d5b8') in 0.087 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=e0911376645a984a62e6a6863c64c7da DependenciesID=14bc712bf6ebdca6b56449f86e2263b9 StaticDependenciesID=532c164d79f5d7af3a8b754d98c7ad1e 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:49.3408408Z
+  Time since last request: 0.0003799 seconds.
+  importAddress: GUID: a34d3a7550f00ff41aba4b640a0d4fe9 - Path: Assets/2DAssets/Grass Tile with Flowers (16x16).png - Importer: ScriptedImporter/UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B
+Importing 'GUID: a34d3a7550f00ff41aba4b640a0d4fe9 - Path: Assets/2DAssets/Grass Tile with Flowers (16x16).png - Importer: ScriptedImporter/UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B' with importer (ScriptedImporter : UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B)
+Imported 'GUID: a34d3a7550f00ff41aba4b640a0d4fe9' -> (Import Result ID: '771169ce408272d6a4ccc9f27d8fc7da') in 0.006 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=a2a16b97d01c8192849afd78f2346b22 DependenciesID=2b2393cff1b04aede61926baedafd4ec StaticDependenciesID=fc050fc8a79f94873c4a2ff7df76f7ff 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:49.3558303Z
+  Time since last request: 0.0003718 seconds.
+  importAddress: GUID: fede5a2d2f266b449b5b2c0dc3ec1812 - Path: Assets/2DAssets/Distant Open-Wing Bird (16x8).png - Importer: ScriptedImporter/UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B
+Importing 'GUID: fede5a2d2f266b449b5b2c0dc3ec1812 - Path: Assets/2DAssets/Distant Open-Wing Bird (16x8).png - Importer: ScriptedImporter/UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B' with importer (ScriptedImporter : UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B)
+Imported 'GUID: fede5a2d2f266b449b5b2c0dc3ec1812' -> (Import Result ID: '65dc010d018adc577616b7f1934c4ce2') in 0.007 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=ce7f9ac0f768d4a805c079a01c2390d3 DependenciesID=791b4bf0acd555e5b35231e1388dc519 StaticDependenciesID=62c75956597a3b6f438bed5978e7bc09 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time of request: 2026-10-27T13:42:49.3712634Z
+  Time since last request: 0.0002456 seconds.
+  importAddress: GUID: 9013ba1738d0bb047a8060fd5c4c4cce - Path: Assets/2DAssets/Visual Cue - Tall Grass Patch (16x16).png - Importer: ScriptedImporter/UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B
+Importing 'GUID: 9013ba1738d0bb047a8060fd5c4c4cce - Path: Assets/2DAssets/Visual Cue - Tall Grass Patch (16x16).png - Importer: ScriptedImporter/UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B' with importer (ScriptedImporter : UnityEditor.QuickSearchModule:UnityEditor.Search:ASIAI0B)
+Imported 'GUID: 9013ba1738d0bb047a8060fd5c4c4cce' -> (Import Result ID: 'a52db2899c47b95e9568312d151d9f91') in 0.006 seconds [static and dynamic dependencies]. Details - ImportResultOutputID=73d58b22f06930008b6f1a82eccb318c DependenciesID=c3d4f726e53521f72fa13e8167e3c450 StaticDependenciesID=339699960cffcca6e9a8d31245068404 
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AcceleratorClientConnectionCallback - disconnected - :0
 AssetImportWorker is now disconnected from the server
 Process exiting

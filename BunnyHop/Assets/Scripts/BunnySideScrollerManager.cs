@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class BunnySideScrollerManager : MonoBehaviour
@@ -15,10 +14,16 @@ public class BunnySideScrollerManager : MonoBehaviour
     [SerializeField] private float hopHeightY = 1.2f;    
     [SerializeField] private float hopDuration = 0.25f;  
 
-    [Header("UI & Visual Elements")]
+    [Header("Rhythm Visual Cues & Ground Alignment")]
+    [Tooltip("Assign 2D prefabs for Grass or Trunks that spawn on beat.")]
+    [SerializeField] private GameObject[] beatMarkerPrefabs; 
+    [Tooltip("Adjust this to move spawned props up or down to align with your tilemap ground surface.")]
+    [SerializeField] private float groundYOffset = -0.5f; 
+    [SerializeField] private float propDestroyDelay = 6.0f; 
+
+    [Header("UI & Visual References")]
     [SerializeField] private TextMeshProUGUI carrotHUDText;
     [SerializeField] private TextMeshProUGUI levelStatusText;
-    [SerializeField] private Image beatVisualIndicator;
     [SerializeField] private Transform bunnyTransform;
     [SerializeField] private GameObject carrotPrefab;
 
@@ -36,7 +41,6 @@ public class BunnySideScrollerManager : MonoBehaviour
 
     private void Awake()
     {
-        // 1. Grab initial ground position BEFORE Start() runs
         if (bunnyTransform != null)
         {
             currentTargetGroundPosition = bunnyTransform.position;
@@ -46,7 +50,6 @@ public class BunnySideScrollerManager : MonoBehaviour
     private void Start()
     {
         UpdateUI();
-        // 2. Immediately spawn the first carrot right in front of player
         SpawnNextCarrot();
     }
 
@@ -55,17 +58,31 @@ public class BunnySideScrollerManager : MonoBehaviour
         lastBeatTime = Time.time;
         beatHitThisCycle = false;
 
-        if (beatVisualIndicator != null)
-        {
-            StartCoroutine(FlashBeatIndicator());
-        }
+        // Spawn obstacle between landing spots so the bunny hops OVER it
+        SpawnBeatObstacle();
     }
 
-    private IEnumerator FlashBeatIndicator()
+    private void SpawnBeatObstacle()
     {
-        beatVisualIndicator.color = Color.yellow;
-        yield return new WaitForSeconds(0.1f);
-        beatVisualIndicator.color = Color.white;
+        if (beatMarkerPrefabs == null || beatMarkerPrefabs.Length == 0) return;
+
+        int randomIndex = Random.Range(0, beatMarkerPrefabs.Length);
+        GameObject selectedPrefab = beatMarkerPrefabs[randomIndex];
+
+        if (selectedPrefab != null)
+        {
+            // Position the obstacle halfway between current position and next landing spot (midpoint of the jump arc)
+            float midpointX = currentTargetGroundPosition.x + (hopDistanceX * 0.5f);
+            
+            // Apply the manual ground Y offset so it sits flush on the tilemap
+            float groundY = currentTargetGroundPosition.y + groundYOffset;
+            float zPos = bunnyTransform != null ? bunnyTransform.position.z : 0f;
+
+            Vector3 spawnPos = new Vector3(midpointX, groundY, zPos);
+
+            GameObject newObstacle = Instantiate(selectedPrefab, spawnPos, Quaternion.identity);
+            Destroy(newObstacle, propDestroyDelay);
+        }
     }
 
     private void Update()
@@ -111,12 +128,9 @@ public class BunnySideScrollerManager : MonoBehaviour
             activeHopCoroutine = StartCoroutine(AnimateForwardHopRoutine());
         }
 
-        // Check if bunny reached/passed the active carrot
         if (activeCarrot != null)
         {
             float distToCarrot = Vector2.Distance(bunnyTransform.position, activeCarrot.transform.position);
-            
-            // If bunny gets within 1 hop distance of the carrot, eat it
             if (distToCarrot <= hopDistanceX * 1.2f)
             {
                 CollectCarrot();
@@ -143,11 +157,7 @@ public class BunnySideScrollerManager : MonoBehaviour
     private void CollectCarrot()
     {
         collectedCarrots++;
-        
-        if (activeCarrot != null)
-        {
-            Destroy(activeCarrot);
-        }
+        if (activeCarrot != null) Destroy(activeCarrot);
 
         UpdateUI();
 
@@ -195,15 +205,10 @@ public class BunnySideScrollerManager : MonoBehaviour
     {
         if (carrotPrefab == null) return;
 
-        if (activeCarrot != null)
-        {
-            Destroy(activeCarrot);
-        }
+        if (activeCarrot != null) Destroy(activeCarrot);
 
-        // Spawn carrot 2 hops ahead on the floor
+        // Spawn carrots at landing spots (2 hops ahead)
         Vector3 spawnPos = currentTargetGroundPosition + new Vector3(hopDistanceX * 2.0f, 0f, 0f);
-        
-        // Retain Z-index so carrot renders in front of background
         spawnPos.z = bunnyTransform != null ? bunnyTransform.position.z : 0f;
 
         activeCarrot = Instantiate(carrotPrefab, spawnPos, Quaternion.identity);
